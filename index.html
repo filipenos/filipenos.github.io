@@ -1,11 +1,512 @@
-<html>
-	<head>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8">
-	
-		<title>Filipenos</title>
-	</head>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Filipe Peixoto — Senior Software Engineer (Go, Distributed Systems, Cloud)</title>
 
-	<body>
-		<h3>Filipenos</h3>
-	</body>
+  <meta name="description" content="Senior Software Engineer specialized in Go, distributed systems, and cloud backend architecture (GCP/AWS). Focused on reliability, scalability, and maintainable production systems." />
+  <meta name="keywords" content="Golang, Go, Node.js, Backend, Distributed Systems, Cloud Architecture, GCP, AWS, Microservices, PostgreSQL, MySQL, Firestore, Redis, MongoDB, DDD, Hexagonal" />
+  <meta name="author" content="Filipe Peixoto" />
+
+  <meta property="og:title" content="Filipe Peixoto — Senior Software Engineer" />
+  <meta property="og:description" content="Go • Distributed Systems • Cloud Architecture (GCP/AWS). Building reliable, scalable backend platforms." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://filipenos.github.io/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #0b0f14;
+      --panel: rgba(255,255,255,0.05);
+      --panel2: rgba(255,255,255,0.035);
+      --text: #e8eef6;
+      --muted: rgba(232,238,246,.72);
+      --subtle: rgba(232,238,246,.55);
+      --brand: #34f5c5;
+      --brand2:#7c4dff;
+      --border: rgba(255,255,255,0.10);
+      --shadow: 0 10px 30px rgba(0,0,0,.45);
+      --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+      --radius: 18px;
+      --max: 1050px;
+    }
+
+    *{ box-sizing: border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: var(--sans);
+      color: var(--text);
+      background:
+        radial-gradient(900px 420px at 10% 0%, rgba(52,245,197,.12), transparent 55%),
+        radial-gradient(700px 420px at 90% 10%, rgba(124,77,255,.12), transparent 60%),
+        radial-gradient(900px 600px at 50% 110%, rgba(52,245,197,.10), transparent 60%),
+        var(--bg);
+      line-height: 1.55;
+    }
+
+    a{ color: inherit; text-decoration: none; }
+    a:hover{ color: var(--brand); }
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 32px 20px 64px;
+    }
+
+    header{
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+      gap:14px;
+      padding: 10px 0 26px;
+    }
+
+    .logo{
+      font-family: var(--mono);
+      font-weight: 600;
+      letter-spacing: .2px;
+      color: var(--muted);
+      display:flex;
+      align-items:center;
+      gap:10px;
+      white-space: nowrap;
+    }
+    .dot{
+      width:10px;height:10px;border-radius:999px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      box-shadow: 0 0 18px rgba(52,245,197,.35);
+    }
+
+    nav{
+      display:flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .navlink{
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--subtle);
+      padding: 8px 10px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      background: transparent;
+      transition: .15s ease;
+    }
+    .navlink:hover{
+      border-color: var(--border);
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+      align-items: stretch;
+      margin-top: 8px;
+    }
+    @media (max-width: 900px){
+      .hero{ grid-template-columns: 1fr; }
+      nav{ justify-content:flex-start; }
+    }
+
+    .card{
+      background: linear-gradient(180deg, var(--panel), var(--panel2));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+
+    h1{
+      margin: 0 0 8px;
+      font-size: 38px;
+      line-height: 1.15;
+      letter-spacing: -0.6px;
+    }
+    .headline{
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 16px;
+      max-width: 75ch;
+    }
+
+    .badges{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 18px 0 0;
+    }
+    .badge{
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,.12);
+    }
+    .badge strong{ color: var(--text); font-weight: 600; }
+
+    .cta{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+      font-weight: 600;
+      transition: .15s ease;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(52,245,197,.35);
+      box-shadow: 0 12px 30px rgba(0,0,0,.25);
+      color: var(--text);
+    }
+    .btn.primary{
+      border-color: rgba(52,245,197,.45);
+      background: linear-gradient(135deg, rgba(52,245,197,.18), rgba(124,77,255,.12));
+    }
+
+    .side h2{
+      margin: 0 0 10px;
+      font-size: 15px;
+      font-family: var(--mono);
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+    .side p{
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .kv{
+      display:grid;
+      grid-template-columns: 120px 1fr;
+      gap: 10px 12px;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    .k{ color: var(--subtle); font-family: var(--mono); }
+    .v{ color: var(--text); }
+
+    .section{
+      margin-top: 18px;
+      padding-top: 6px;
+    }
+    .section-title{
+      margin: 26px 0 10px;
+      display:flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .section-title h2{
+      margin: 0;
+      font-size: 18px;
+      letter-spacing: -0.2px;
+    }
+    .section-title span{
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--subtle);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+    }
+
+    .col-7{ grid-column: span 7; }
+    .col-5{ grid-column: span 5; }
+    .col-6{ grid-column: span 6; }
+    .col-12{ grid-column: span 12; }
+    @media (max-width: 900px){
+      .col-7, .col-5, .col-6{ grid-column: span 12; }
+    }
+
+    .item h3{
+      margin: 0 0 8px;
+      font-size: 16px;
+      letter-spacing: -0.2px;
+    }
+    .item p{ margin: 0; color: var(--muted); font-size: 14px; }
+    .bullets{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .bullets li{ margin: 6px 0; }
+    .meta{
+      margin-top: 10px;
+      display:flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .chip{
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 6px 9px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--subtle);
+      background: rgba(0,0,0,.10);
+    }
+
+    footer{
+      margin-top: 36px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      color: var(--subtle);
+      font-size: 13px;
+      display:flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .mono{ font-family: var(--mono); }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <header>
+      <div class="logo"><span class="dot"></span> <span>Filipe Peixoto</span></div>
+      <nav>
+        <a class="navlink" href="#work">Work</a>
+        <a class="navlink" href="#projects">Projects</a>
+        <a class="navlink" href="#stack">Stack</a>
+        <a class="navlink" href="#links">Links</a>
+      </nav>
+    </header>
+
+    <main class="hero">
+      <section class="card">
+        <h1>Filipe Peixoto</h1>
+        <div class="headline">
+          Senior Software Engineer specialized in <b>Go</b>, <b>distributed systems</b>, and <b>cloud backend architecture</b> across <b>GCP</b> and <b>AWS</b>.
+          Focused on reliability, scalability, and maintainable production systems.
+        </div>
+
+        <div class="badges">
+          <div class="badge"><strong>15+ years</strong> in software</div>
+          <div class="badge"><strong>12+ years</strong> with Go</div>
+          <div class="badge">Node.js • Integrations • Tooling</div>
+          <div class="badge">Distributed systems • Microservices • APIs</div>
+          <div class="badge">DDD • Hexagonal • Pragmatic TDD</div>
+          <div class="badge">PostgreSQL • MySQL • Firestore</div>
+          <div class="badge">Redis • MongoDB</div>
+          <div class="badge">Linux-first workflow • Vim</div>
+        </div>
+
+        <div class="cta">
+          <a class="btn primary" href="https://www.linkedin.com/in/filipenos/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn" href="https://github.com/filipenos" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </section>
+
+      <aside class="card side">
+        <h2>Engineering Profile</h2>
+        <p>
+          Ownership-driven backend engineering: architecture, delivery, and operational stability of production systems.
+          I prioritize clear boundaries, resilient workflows, and simple designs that scale.
+        </p>
+
+        <div class="kv">
+          <div class="k">Core</div><div class="v">Go, Node.js, Distributed Systems, Cloud</div>
+          <div class="k">Cloud</div><div class="v">GCP & AWS</div>
+          <div class="k">Data</div><div class="v">PostgreSQL, MySQL, Firestore, Redis, MongoDB</div>
+          <div class="k">Approach</div><div class="v">Reliability, performance, maintainability</div>
+          <div class="k">Workflow</div><div class="v">Linux-native, terminal-first, Vim</div>
+        </div>
+
+        <div class="section">
+          <h2>Focus</h2>
+          <ul class="bullets">
+            <li>Service boundaries and stable contracts (clean interfaces)</li>
+            <li>Performance: DB tuning, caching, concurrency, queue-based workflows</li>
+            <li>Reliability: timeouts, retries, idempotency, backpressure, graceful degradation</li>
+            <li>Observability mindset: actionable logs, metrics, and tracing-ready design</li>
+          </ul>
+        </div>
+      </aside>
+    </main>
+
+    <section id="work" class="section">
+      <div class="section-title">
+        <h2>Work</h2>
+        <span>Experience snapshot</span>
+      </div>
+
+      <div class="grid">
+        <div class="card col-6 item">
+          <h3>Senior Software Engineer — Digipix (Mar 2019 → Present)</h3>
+          <p>
+            Building and evolving backend platforms for production workloads, focusing on scalable services,
+            integrations, and operational reliability.
+          </p>
+          <ul class="bullets">
+            <li>Designed and maintained backend services and APIs with production-grade reliability</li>
+            <li>Worked across cloud infrastructure and data layers to support high-throughput workflows</li>
+            <li>Improved performance and operational stability through pragmatic engineering tradeoffs</li>
+          </ul>
+          <div class="meta">
+            <span class="chip">Go</span><span class="chip">Cloud (GCP/AWS)</span><span class="chip">PostgreSQL/MySQL</span><span class="chip">Redis</span><span class="chip">Microservices</span>
+          </div>
+        </div>
+
+        <div class="card col-6 item">
+          <h3>Systems Analyst — Benefício Fácil (Nov 2010 → Mar 2019)</h3>
+          <p>
+            Ownership of business-critical systems, APIs, and integrations, with strong foundations in backend engineering,
+            data modeling, and production operations.
+          </p>
+          <ul class="bullets">
+            <li>Built and maintained systems end-to-end: backend, databases, and third-party integrations</li>
+            <li>Delivered production features with focus on correctness and maintainability</li>
+            <li>Supported stable operations and continuous improvement over years</li>
+          </ul>
+          <div class="meta">
+            <span class="chip">Backend</span><span class="chip">APIs</span><span class="chip">SQL</span><span class="chip">Integrations</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="section-title">
+        <h2>Selected Projects</h2>
+        <span>Impact-oriented highlights</span>
+      </div>
+
+      <div class="grid">
+        <div class="card col-7 item">
+          <h3>Financial Control SaaS</h3>
+          <p>
+            Cloud-native architecture designed for cost-efficient scalability, multi-tenant access, and secure workflows.
+          </p>
+          <ul class="bullets">
+            <li>Architected clean service boundaries, authentication flow, and data model for evolvability</li>
+            <li>Designed for reliability and operational simplicity (safe retries, validation, predictable failure modes)</li>
+            <li>Built with an architecture-first mindset: contracts, observability, and maintainability</li>
+          </ul>
+          <div class="meta">
+            <span class="chip">Go</span><span class="chip">Cloud (GCP/AWS)</span><span class="chip">Firestore</span><span class="chip">Architecture</span>
+          </div>
+        </div>
+
+        <div class="card col-5 item">
+          <h3>Redis-based Semaphore (ZSET + TTL cleanup)</h3>
+          <p>
+            Concurrency control mechanism to protect downstream systems under load with predictable behavior and safe failure modes.
+          </p>
+          <ul class="bullets">
+            <li>Atomic acquisition using Lua + ZSET cardinality</li>
+            <li>TTL-based cleanup to avoid dead tokens and uncontrolled growth</li>
+            <li>Designed for idempotent flows and production reliability</li>
+          </ul>
+          <div class="meta">
+            <span class="chip">Redis</span><span class="chip">Lua</span><span class="chip">Go</span><span class="chip">Resilience</span>
+          </div>
+        </div>
+
+        <div class="card col-6 item">
+          <h3>DDD + Hexagonal Go Architecture</h3>
+          <p>
+            Architecture optimized for long-term maintainability: ports/adapters, domain isolation, and testable business rules.
+          </p>
+          <ul class="bullets">
+            <li>Clear boundaries between domain, application, and infrastructure</li>
+            <li>Adapters for DB/cache/HTTP integrations with reduced coupling</li>
+            <li>Improved refactor safety and testability across the codebase</li>
+          </ul>
+          <div class="meta">
+            <span class="chip">Go</span><span class="chip">DDD</span><span class="chip">Hexagonal</span><span class="chip">Testing</span>
+          </div>
+        </div>
+
+        <div class="card col-6 item">
+          <h3>Vue 3 + Quasar UI System (Forms & Components)</h3>
+          <p>
+            Reusable component system for complex form flows with consistent data serialization between UI and APIs.
+          </p>
+          <ul class="bullets">
+            <li>Dynamic forms with nested schemas and reusable inputs</li>
+            <li>Strong data consistency across UI state, API payloads, and domain models</li>
+            <li>Improved developer velocity with stable component abstractions</li>
+          </ul>
+          <div class="meta">
+            <span class="chip">Vue 3</span><span class="chip">Quasar</span><span class="chip">TypeScript</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stack" class="section">
+      <div class="section-title">
+        <h2>Stack</h2>
+        <span>Tooling I ship with</span>
+      </div>
+
+      <div class="grid">
+        <div class="card col-12 item">
+          <p>
+            <span class="mono">Go</span> • <span class="mono">Node.js</span> • Distributed Systems • Microservices • APIs • Cloud (GCP/AWS) •
+            PostgreSQL • MySQL • Firestore • Redis • MongoDB •
+            DDD • Hexagonal • Reliability Engineering • Observability mindset •
+            Linux-first workflow • Terminal-driven development • Vim
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="links" class="section">
+      <div class="section-title">
+        <h2>Links</h2>
+        <span>Profiles</span>
+      </div>
+
+      <div class="grid">
+        <div class="card col-12 item">
+          <div class="cta" style="margin-top:0;">
+            <a class="btn primary" href="https://www.linkedin.com/in/filipenos/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="btn" href="https://github.com/filipenos" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span class="mono">Filipe Peixoto</span> — Built with plain HTML on GitHub Pages</div>
+      <div class="mono">Updated: <span id="dt"></span></div>
+    </footer>
+
+  </div>
+
+  <script>
+    const d = new Date();
+    const fmt = d.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: '2-digit' });
+    document.getElementById('dt').textContent = fmt;
+  </script>
+</body>
 </html>
