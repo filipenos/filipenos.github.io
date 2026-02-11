@@ -13,6 +13,15 @@
   <meta property="og:description" content="Go • Distributed Systems • Cloud Architecture (GCP/AWS). Building reliable, scalable backend platforms." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://filipenos.github.io/" />
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/1775717?v=4" />
+  <meta property="og:image:alt" content="Filipe Peixoto profile image" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Filipe Peixoto — Senior Software Engineer" />
+  <meta name="twitter:description" content="Go • Distributed Systems • Cloud Architecture (GCP/AWS). Building reliable, scalable backend platforms." />
+  <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/1775717?v=4" />
+
+  <link rel="canonical" href="https://filipenos.github.io/" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,6 +61,11 @@
 
     a{ color: inherit; text-decoration: none; }
     a:hover{ color: var(--brand); }
+    a:focus-visible{
+      outline: 2px solid var(--brand);
+      outline-offset: 2px;
+      border-radius: 8px;
+    }
     .wrap{
       max-width: var(--max);
       margin: 0 auto;
@@ -320,8 +334,8 @@
         </div>
 
         <div class="cta">
-          <a class="btn primary" href="https://www.linkedin.com/in/filipenos/" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a class="btn" href="https://github.com/filipenos" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn primary" href="https://www.linkedin.com/in/filipenos/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class="btn" href="https://github.com/filipenos" target="_blank" rel="noopener noreferrer">GitHub</a>
         </div>
       </section>
 
@@ -489,8 +503,8 @@
       <div class="grid">
         <div class="card col-12 item">
           <div class="cta" style="margin-top:0;">
-            <a class="btn primary" href="https://www.linkedin.com/in/filipenos/" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a class="btn" href="https://github.com/filipenos" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="btn primary" href="https://www.linkedin.com/in/filipenos/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a class="btn" href="https://github.com/filipenos" target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
         </div>
       </div>
@@ -504,7 +518,8 @@
   </div>
 
   <script>
-    const d = new Date();
+    const src = document.lastModified ? new Date(document.lastModified) : new Date();
+    const d = Number.isNaN(src.getTime()) ? new Date() : src;
     const fmt = d.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: '2-digit' });
     document.getElementById('dt').textContent = fmt;
   </script>
